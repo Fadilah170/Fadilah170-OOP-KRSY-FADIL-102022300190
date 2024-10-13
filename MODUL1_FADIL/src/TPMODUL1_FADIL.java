@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 // Class Penerbangan
-public class TPMODUL2_FADIL {
+public class TPMODUL1_FADIL {
 
     static class Penerbangan {
         private String nomorPenerbangan;
