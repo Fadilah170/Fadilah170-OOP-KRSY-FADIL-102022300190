@@ -53,7 +53,7 @@ public class TPMODUL1_FADIL {
         public void tampilDaftarPenumpang() {
             System.out.println("NIK: " + NIK);
             System.out.println("Nama: " + namaDepan + " " + namaBelakang);
-            System.out.println("-------------------------------");
+            System.out.println("--------------------------------");
         }
     }
 
