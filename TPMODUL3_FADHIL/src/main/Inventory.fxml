@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InventoryController">
+   <children>
+      <TableView layoutX="36.0" layoutY="100.0" prefHeight="200.0" prefWidth="353.0">
+        <columns>
+            <TableColumn fx:id="albumNameColumn" prefWidth="150.39997100830078" text="Album Name" />
+            <TableColumn fx:id="artistColumn" prefWidth="73.60003662109375" text="Artist" />
+          <TableColumn fx:id="availableColumn" prefWidth="73.59991455078125" text="Available" />
+          <TableColumn fx:id="totalColumn" prefWidth="56.800048828125" text="Total" />
+        </columns>
+      </TableView>
+      <Label contentDisplay="CENTER" layoutX="356.0" layoutY="59.0" text="Listening Bar" />
+      <TextField layoutX="444.0" layoutY="119.0" prefHeight="26.0" prefWidth="220.0" />
+      <TextField layoutX="444.0" layoutY="175.0" prefHeight="26.0" prefWidth="220.0" />
+      <TextField layoutX="445.0" layoutY="225.0" prefHeight="26.0" prefWidth="220.0" />
+      <TextField layoutX="445.0" layoutY="275.0" prefHeight="26.0" prefWidth="220.0" />
+      <Label layoutX="445.0" layoutY="100.0" text="Judul Album" />
+      <Label layoutX="445.0" layoutY="158.0" text="Nama Artis" />
+      <Label layoutX="445.0" layoutY="208.0" text="Jumlah Total" />
+      <Label layoutX="445.0" layoutY="258.0" text="Jumlah Rented" />
+      <Button layoutX="334.0" layoutY="323.0" mnemonicParsing="false" text="Hapus" onAction="#handleDelete" />
+      <Button layoutX="494.0" layoutY="323.0" mnemonicParsing="false" text="Tambah" onAction="#handleAdd" />
+      <Button layoutX="416.0" layoutY="323.0" mnemonicParsing="false" text="Update" onAction="#handleUpdate" />
+      <Button layoutX="211.0" layoutY="323.0" mnemonicParsing="false" text="Rent Selected" onAction="#handleRent" />
+   </children>
+</AnchorPane>
