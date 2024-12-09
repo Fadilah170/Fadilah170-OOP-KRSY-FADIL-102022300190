@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.security.InvalidAlgorithmParameterException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.MissingFormatArgumentException;
 
 public class MainAppController {
 
@@ -30,9 +32,18 @@ public class MainAppController {
 
         // TODO: konfigurasi kolom tabel untuk setiap atribut task
         // hint: gunakan setCellValueFactory dan PropertyValueFactory
+        titleCol.setCellFactory(new PropertyValueFactory<>(property;"title"));
+        priorityCol.setCellFactory(new PropertyValueFactory<>(property;"title"));
+        dueDateCol.setCellFactory(new PropertyValueFactory<>(property;"title"));
+        statusCol.setCellFactory(new PropertyValueFactory<>(property;"title"));
+
 
         // TODO: konfigurasi lebar kolom agar lebih rapi
         // hint: gunakan setPrefWidth
+        titleCol.setPrefWidth(150);
+        priorityCol.setPrefWidth(100);
+        dueDateCol.setPrefWidth(150);
+        statusCol.setPrefWidth(100);
 
         taskTable.setItems(taskList);
 
@@ -46,19 +57,27 @@ public class MainAppController {
         
             if (titleField.getText().isEmpty() || priorityBox.getValue() == null || dueDatePicker.getValue() == null) {
                 // TODO: Throw new MissingFieldException dengan pesan yang sesuai
+                throw new MissingFormatArgumentException("isi semua field");
             }
 
             if (dueDatePicker.getValue().isBefore(LocalDate.now())) {
-                // TODO: Throw new InvalidDateException dengan pesan yang sesuai 
+                // TODO: Throw new InvalidDateException dengan pesan yang sesuai
+                throw InstantiationDateException("tanggal jatuh tempo tidak boleh masa lalu"); 
             }
 
             // TODO: Buat objek task baru dengan value dari field pada form
             // hint: gunakan getText() untuk TextField, getValue() untuk ComboBox, dan DatePicker, serta masukkan status "Incomplete" secara default
             Task task = new Task(
+                titleField.getText(),
+                priorityBox.getValue(),
+                dueDatePicker.getValue(),
+                "incomplate!"
             );
 
             // TODO: Tambahkan objek task yang telah dibuat ke taskList
             // hint: gunakan function bawaan dari ObservableList, yaitu add
+            taskList.add(task);
+            
 
             clearData();
             TaskFileManager.saveTasks(new ArrayList<>(taskList));
@@ -74,6 +93,7 @@ public class MainAppController {
     // TODO: hapus semua value dari field pada form
     // hint: gunakan function getSelectionModel().clearSelection() untuk ComboBox dan getEditor().clear() untuk DatePicker
     private void clearData(){
+        s selected = TableView.getSelectionModel().clearSelection();
 
     }
 

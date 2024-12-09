@@ -8,7 +8,7 @@ public class Task {
     private String status;
 
     // TO DO: Buat constructor untuk kelas Task
-    public Task(LocalDate dueDate, String title, String priority, String status) {
+    public Task(String title, String priority, LocalDate dueDate, String status) {
         this.dueDate = dueDate;
         this.title = title;
         this.priority = priority;
@@ -37,3 +37,4 @@ public class Task {
     public void setStatus(String status) {
         this.status = status;
     }
+}
