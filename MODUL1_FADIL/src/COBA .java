@@ -1,33 +1,38 @@
 import java.util.Scanner;
 
-public class tryCatch {
+public class NamaDanPerhitungan {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Masukkan nilai A (int): ");
-        if (!scanner.hasNextInt()) {
-            System.out.println("Error: Harap masukkan angka!");
-            scanner.close();
-            return;
-        }
-        int a = scanner.nextInt();
-
-        System.out.print("Masukkan nilai B (int): ");
-        if (!scanner.hasNextInt()) {
-            System.out.println("Error: Harap masukkan angka!");
-            scanner.close();
-            return;
-        }
-        int b = scanner.nextInt();
-
         try {
-            int hasil = a / b;
-            System.out.println("Hasil Pembagian = " + hasil);
+            
+            System.out.print("Masukkan nama kamu: ");
+            String nama = scanner.nextLine();
+            
+            int jumlahKarakterNama = nama.length();
+            
+            System.out.print("Masukkan nilai A: ");
+            int nilaiA = scanner.nextInt();
+            
+            System.out.print("Masukkan nilai B: ");
+            int nilaiB = scanner.nextInt();
+          
+            if (nilaiB == 0) {
+                throw new ArithmeticException("Error: Nilai B tidak boleh nol!");
+            }
+
+            int hasilPenjumlahan = nilaiA + jumlahKarakterNama;
+
+            System.out.println("Jumlah karakter nama kamu: " + jumlahKarakterNama);
+            System.out.println("Nilai A: " + nilaiA);
+            System.out.println("Nilai B: " + nilaiB);
+            System.out.println("Hasil penjumlahan nilai A dan jumlah karakter nama: " + hasilPenjumlahan);
         } catch (ArithmeticException e) {
-            System.out.println("Error: Tidak bisa dibagi dengan 0");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Terjadi kesalahan: " + e.getMessage());
         } finally {
             scanner.close();
-            System.out.println("Terima Kasih :)");
-        }
-    }
+        }
+    }
 }
